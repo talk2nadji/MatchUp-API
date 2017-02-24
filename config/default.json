@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/matchupApi",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "y28kiLHI1RwLli5OGYOQW0q/nHBzbJpFTncokTDT92hkitQB/XN0fucjys5znGEvGqWkBVl0EIV8inuceNqcSA=="
+    },
+    "local": {}
+  }
+}
