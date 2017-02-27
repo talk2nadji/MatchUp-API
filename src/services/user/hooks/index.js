@@ -10,6 +10,7 @@ exports.before = {
     // auth.verifyToken(),
     // auth.populateUser(),
     // auth.restrictToAuthenticated()
+    //TODO only admin
   ],
   get: [
     auth.verifyToken(),

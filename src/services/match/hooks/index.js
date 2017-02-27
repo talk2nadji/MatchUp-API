@@ -5,27 +5,24 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 const common = require('feathers-hooks-common');
 
-const assignGeneratorAdmin = function(options) {
-  return function(hook) {
+const assignMatchGen = require('./assign-match');
 
-    const user = hook.params.user;
-    hook.data.generatorAdminId = user._id;
-    hook.data.userOneId = user._id;
-    hook.date.userTwoId = user._id;
-  }
-}
-
-const populateGeneratorAdmin = common.populate('generatorAdmin', { service: 'users', field: 'generatorAdminId' })
+const populateGenerator = common.populate('generator', { service: 'users', field: 'generatorId' });
+//TODO const populateUser1 = common.populate('user1', { service: 'users', field: 'userOneId' })
+//TODO const populateUser2 = common.populate('user2', { service: 'users', field: 'userTwoId' })
 
 exports.before = {
   all: [],
-  find: [],
+  find: [
+    //TODO filter matches by date & currentUser
+    //TODO filter matches by date & admin
+  ],
   get: [],
   create: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated(),
-    assignGeneratorAdmin()
+    // auth.verifyToken(),
+    // auth.populateUser(),
+    // auth.restrictToAuthenticated(),
+    // assignMatchGen()
   ],
   update: [
     auth.verifyToken(),
@@ -46,7 +43,10 @@ exports.before = {
 
 exports.after = {
   all: [
-    populateGeneratorAdmin
+    populateGenerator,
+    //TODO populateUser1,
+    //TODO populateUser2
+    //TODO cleanup sanitize
   ],
   find: [],
   get: [],

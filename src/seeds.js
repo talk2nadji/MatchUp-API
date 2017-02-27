@@ -11,20 +11,47 @@ const app = feathers()
   .configure(rest(host).superagent(superagent));
 
 const userService = app.service('users');
-const matchService = app.service('match');
+const matchService = app.service('matches');
 
-
+//TODO isLoggedIn:
 const user = {
     name: 'Richard Nadji',
     email: 'talk2nadji@hotmail.com',
     password: 'qwer1234',
-    isAdmin: true
+    isAdmin: true,
 }
 
 const matches = [
   {
-    //TODO generatorAdmin: userOneId: userTwoId: date:(maybe createdAt)
-  }
+    date: Date.now,
+    generatorId: 'abas2345456st1',
+    user1: 'Superman',
+    user2: 'Wonder Woman'
+  },
+  {
+    date: Date.now,
+    generatorId: 'abas2345456st2',
+    user1: 'Superman',
+    user2: 'Wonder Woman'
+  },
+  {
+    date: Date.now,
+    generatorId: 'abas2345456st3',
+    user1: 'Superman',
+    user2: 'Wonder Woman'
+  },
+  {
+    date: Date.now,
+    generatorId: 'abas2345456st4',
+    user1: 'Superman',
+    user2: 'Wonder Woman'
+  },
+  {
+    date: Date.now,
+    generatorId: 'abas2345456st5',
+    user1: 'Superman',
+    user2: 'Wonder Woman'
+  },
 ]
 
 userService.create(user)

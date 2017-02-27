@@ -15,10 +15,16 @@ const userSchema = new Schema({
 });
 
 const matchSchema = new Schema({
-  generatorAdminId: { type: Schema.Types.ObjectId, ref: 'user' },
-  userOneId: { type: Schema.Types.ObjectId, ref: 'user' },
-  userTwoId: { type: Schema.Types.ObjectId, ref: 'user' },
-  
+  // date: { type: Date, required: true, 'default': Date.now },
+  // generatorId: { type: Schema.Types.ObjectId, ref: 'user' },
+  // userOneId: { type: Schema.Types.ObjectId, ref: 'user' },
+  // userTwoId: { type: Schema.Types.ObjectId, ref: 'user' },
+
+  date: { type: Date, required: true, 'default': Date.now },
+  generatorId: { type: Schema.Types.ObjectId, ref: 'user' },
+  user1: { type: String, required: true },
+  user2: { type: String, required: true },
+
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
